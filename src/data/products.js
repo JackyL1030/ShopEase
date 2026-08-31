@@ -71,8 +71,6 @@ const products = [
     description:
       '1080p HD webcam with auto-focus and built-in microphone. Ideal for video calls and streaming.',
   },
-
-  // New products
   {
     id: 9,
     name: 'Bluetooth Speaker',
@@ -87,7 +85,7 @@ const products = [
     name: 'Wireless Charger',
     price: 34.99,
     image:
-      'https://images.unsplash.com/photo-1586816879360-004f5b0c51e3?w=500&h=500&fit=crop',
+      'https://images.unsplash.com/photo-1591290619618-904f6dd935e3?auto=format&fit=crop&fm=jpg&q=60&w=500',
     description:
       'Fast wireless charging pad with a slim modern design. Compatible with a wide range of smartphones and earbuds.',
   },
