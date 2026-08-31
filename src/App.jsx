@@ -1,14 +1,19 @@
-import { Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Auth from './pages/Auth';
+import Checkout from './pages/Checkout';
+import Home from './pages/Home';
 
 function App() {
-  return <div className="app">
-    <Routers>
-      <Route path="/" />
-      <Route path="/auth" />
-      <Route path="/checkout" />
-    </Routers>
-  </div>;
+  return (
+    <div className="app">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
