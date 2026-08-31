@@ -1,5 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+
+import Navbar from './components/Navbar';
+
 import Auth from './pages/Auth';
 import Checkout from './pages/Checkout';
 import Home from './pages/Home';
@@ -7,6 +10,7 @@ import Home from './pages/Home';
 function App() {
   return (
     <div className="app">
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<Auth />} />
