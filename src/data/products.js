@@ -157,7 +157,7 @@ const products = [
     name: 'Portable Power Bank',
     price: 44.99,
     image:
-      'https://images.unsplash.com/photo-1609592424896-4c3d3d7a3f18?w=500&h=500&fit=crop',
+      'https://images.unsplash.com/photo-1613070541337-b40942ee6527?auto=format&fit=crop&fm=jpg&q=60&w=500',
     description:
       'High-capacity portable power bank with fast charging support. Keep your phone, tablet, and other devices powered on the go.',
   },
