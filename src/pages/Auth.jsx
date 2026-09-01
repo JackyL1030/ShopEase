@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 
 export default function Auth() {
   const [mode, setMode] = useState('signup');
-  const { signUp, user } = useContext(AuthContext);
+  const { signUp, user, logout, login } = useContext(AuthContext);
 
   const {
     register,
@@ -13,13 +13,19 @@ export default function Auth() {
   } = useForm();
 
   function onSubmit(data) {
-    signUp(data.email, data.password);
+    if (mode === 'signup') {
+      signUp(data.email, data.password);
+    } else {
+      login(data.email, data.password);
+    }
   }
 
   return (
     <div className="page">
       <div className="container">
         <div className="auth-container">
+          {user && <p>Welcome, {user.email}!</p>}
+          <button onClick={logout}>Logout</button>
           <h1 className="page-title">
             {mode === 'signup' ? 'Sign Up' : 'Login'}
           </h1>
