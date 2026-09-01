@@ -208,7 +208,7 @@ I'm still learning, so there are definitely things I'd do differently if I start
 https://github.com/JackyL1030/ShopEase
 
 **Live Demo:**
-[(https://shop-ease-pi-lilac.vercel.app/)]
+https://shop-ease-pi-lilac.vercel.app/
 
 ---
 
