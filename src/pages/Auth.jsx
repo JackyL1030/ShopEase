@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Auth() {
   const [mode, setMode] = useState('signup');
   const [error, setError] = useState(null);
+
   const navigate = useNavigate();
 
   const { signUp, login } = useAuth();
@@ -28,7 +29,7 @@ export default function Auth() {
     if (result.success) {
       navigate('/');
     } else {
-      setError(result.message);
+      setError(result.error);
     }
   }
 
@@ -60,9 +61,6 @@ export default function Auth() {
                 Password
               </label>
               <input
-                className="form-input"
-                type="password"
-                id="password"
                 {...register('password', {
                   required: 'Password is required',
                   minLength: {
@@ -74,15 +72,20 @@ export default function Auth() {
                     message: 'Password must be less than 12 characters',
                   },
                 })}
+                className="form-input"
+                type="password"
+                id="password"
               />
               {errors.password && (
                 <span className="form-error">{errors.password.message}</span>
               )}
             </div>
-            <button type="submit" className="btn btn-primary btn-large  ">
+
+            <button type="submit" className="btn btn-primary btn-large">
               {mode === 'signup' ? 'Sign Up' : 'Login'}
             </button>
           </form>
+
           <div className="auth-switch">
             {mode === 'signup' ? (
               <p>
@@ -93,6 +96,7 @@ export default function Auth() {
               </p>
             ) : (
               <p>
+                {' '}
                 Don't have an account?{' '}
                 <span className="auth-link" onClick={() => setMode('signup')}>
                   Sign Up

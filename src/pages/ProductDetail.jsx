@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { getProductById } from '../data/products';
 
-export default function ProductDetail() {
+export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const navigate = useNavigate();
@@ -11,10 +11,12 @@ export default function ProductDetail() {
 
   useEffect(() => {
     const foundProduct = getProductById(id);
+
     if (!foundProduct) {
       navigate('/');
       return;
     }
+
     setProduct(foundProduct);
   }, [id]);
 
@@ -37,9 +39,12 @@ export default function ProductDetail() {
           </div>
           <div className="product-detail-content">
             <h1 className="product-detail-name">{product.name}</h1>
-            <p className="product-detail-price">${product.price.toFixed(2)}</p>
+            <p className="product-detail-price">${product.price}</p>
             <p className="product-detail-description">{product.description}</p>
-            <button className="btn btn-primary" onClick={() => addToCart()}>
+            <button
+              className="btn btn-primary"
+              onClick={() => addToCart(product.id)}
+            >
               Add to Cart {productQuantityLabel}
             </button>
           </div>
