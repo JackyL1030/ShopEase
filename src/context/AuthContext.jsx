@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 export const AuthContext = createContext(null);
 
@@ -24,9 +24,11 @@ export default function AuthProvider({ children }) {
     setUser({ email });
     return { success: true };
   }
-  function login(email,password) {
+  function login(email, password) {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
-    const user = users.find((u) => u.email === email && u.password === password);
+    const user = users.find(
+      (u) => u.email === email && u.password === password,
+    );
     if (!user) {
       return { success: false, message: 'Invalid email or password' };
     }
@@ -44,4 +46,9 @@ export default function AuthProvider({ children }) {
       {children}
     </AuthContext.Provider>
   );
+}
+
+export function useAuth() {
+  const context = useContext(AuthContext);
+  return context;
 }
